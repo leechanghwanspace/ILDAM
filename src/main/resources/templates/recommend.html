@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>RECOMMEND</title>
+    <link rel="stylesheet" type="text/css" href="/css/recommend.css"/>
+</head>
+<body>
+<th:block th:replace="~{nav2 :: nav}"></th:block>
+<div class="container">
+    <form id="search-form">
+        <input type="text" id="search-input" placeholder="Ex) 놀거리 추천">
+        <button type="submit">Search</button>
+    </form>
+    <div id="search-results"></div>
+</div>
+<script src="/js/search.js"></script>
+</body>
+</html>

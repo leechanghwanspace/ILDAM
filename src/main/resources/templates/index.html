@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>DailyLog</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+    <script src="/js/index.js" defer></script>
+</head>
+<body>
+<h1>일상을 담다</h1>
+<p id="hero-text">"ILDAM : Express Daily Life."</p>
+<button class="start-btn" onclick="window.location.href='/main'">시작하기</button>
+<div class="info-container">
+    <p id="current-datetime"></p>
+    <div class="weather-info">
+        <dl>
+            <dt>기온</dt>
+            <dd class="temperature"></dd>
+            <dt>위치</dt>
+            <dd class="place"></dd>
+            <dt>설명</dt>
+            <dd class="description"></dd>
+        </dl>
+        <img class="icon" />
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit To-Do</title>
+    <link rel="stylesheet" type="text/css" href="/css/plan.css"/>
+</head>
+<body>
+<div class="container">
+    <h1>일상을 담다 : 계획 수정하기</h1>
+    <form th:action="@{/todos/edit/{id}(id=${todo.id})}" method="post">
+        <input type="text" name="description" th:value="${todo.description}" required/>
+        <button type="submit" class="submit-btn">수정하기</button>
+    </form>
+</div>
+</body>
+</html>

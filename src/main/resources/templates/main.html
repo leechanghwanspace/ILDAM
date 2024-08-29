@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+</head>
+<body>
+<nav>
+    <div class="logo">
+        <a href="/">
+            <img th:src="@{/image/illdam.png}"/>
+        </a>
+    </div>
+    <ul>
+        <li><a href="/posts">POST</a></li>
+        <li><a href="/todos">PLAN</a></li>
+        <li><a href="/recommend">🔎</a></li>
+    </ul>
+</nav>
+
+
+<div class="slider-container">
+    <div class="slider" id="slider">
+        <!-- JavaScript가 이미지를 동적으로 추가할 것입니다. -->
+    </div>
+</div>
+
+<div class="button-container">
+    <a th:href="@{/posts}" class="button">일상 담기</a>
+    <a th:href="@{/todos}" class="button">일상 계획</a>
+    <a th:href="@{/recommend}" class="button">일상 추천</a>
+</div>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Posts</title>
+    <link rel="stylesheet" type="text/css" href="/css/post.css"/>
+</head>
+<body>
+<th:block th:replace="~{nav1 :: nav}"></th:block>
+<div class="container">
+    <h1>일상을 담다</h1>
+    <ul class="post-list">
+        <li th:each="post : ${posts.content}" class="post-item">
+            <a th:href="@{/posts/{id}(id=${post.id})}" th:text="${post.title}">Post Title</a>
+        </li>
+    </ul>
+    <div class="pagination">
+        <span th:if="${posts.hasPrevious()}">
+            <a th:href="@{/posts(page=${currentPage - 1})}">이전</a>
+        </span>
+        <span th:each="i : ${#numbers.sequence(0, posts.totalPages - 1)}">
+            <a th:href="@{/posts(page=${i})}" th:text="${i + 1}"></a>
+        </span>
+        <span th:if="${posts.hasNext()}">
+            <a th:href="@{/posts(page=${currentPage + 1})}">다음</a>
+        </span>
+    </div>
+</div>
+</body>
+</html>

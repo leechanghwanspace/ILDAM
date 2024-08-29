@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${post.title}">Post Title</title>
+    <link rel="stylesheet" type="text/css" href="/css/post.css"/>
+    <script src="/js/post.js" defer></script>
+</head>
+<body>
+<th:block th:replace="~{nav1 :: nav}"></th:block>
+<div class="container">
+    <div class="card">
+        <div class="post-title">
+            <h1 th:text="${post.title}">Post Title</h1>
+        </div>
+        <div class="post-content" th:text="${post.content}">
+            Post Content
+        </div>
+        <div class="post-author">
+            <p><strong>Author:</strong> <span th:text="${post.author}">Author Name</span></p>
+        </div>
+        <div th:if="${post.imagePath}">
+            <img th:src="@{${post.imagePath}}" alt="Post Image" class="post-image">
+        </div>
+        <div class="action-buttons">
+            <a th:href="@{/posts/edit/{id}(id=${post.id})}" class="btn edit-btn">수정하기</a>
+            <form th:action="@{/posts/delete/{id}(id=${post.id})}" method="post" class="d-inline">
+                <input type="hidden" name="_method" value="DELETE"/>
+                <button type="submit" class="btn delete-btn" onclick="confirmDelete(event)">삭제하기</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

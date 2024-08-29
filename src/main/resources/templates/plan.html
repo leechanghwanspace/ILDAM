@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PLAN</title>
+    <link rel="stylesheet" type="text/css" href="/css/plan.css"/>
+    <script src="/js/todo.js" defer></script>
+</head>
+<body>
+<th:block th:replace="~{nav2 :: nav}"></th:block>
+<div class="container">
+    <h1>일상을 세우다</h1>
+    <form th:action="@{/todos}" method="post" class="todo-form">
+        <input type="text" name="description" placeholder="새로운 계획을 세워주세요." required/>
+        <button type="submit">추가하기</button>
+    </form>
+    <ul class="todo-list">
+        <li th:each="todo : ${todos}" class="todo-item">
+            <span th:text="${todo.description}" class="todo-desc"></span>
+            <button th:if="${!todo.completed}" th:data-id="${todo.id}" class="complete-btn">계획 성공</button>
+            <button th:if="${todo.completed}" disabled class="completed-btn">완료하다</button>
+            <button th:data-id="${todo.id}" class="delete-btn">삭제</button>
+            <button th:data-id="${todo.id}" class="edit-btn">수정</button>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
